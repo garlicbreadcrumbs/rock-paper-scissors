@@ -32,20 +32,35 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function scores() {
-    console.log(`Your score is: ${playerScore}. Computer's score is: ${computerScore}`);
+    console.log(`Your score: ${playerScore}. Computer's score: ${computerScore}`);
+}
+
+function gameEnd() {
+    if (playerScore > computerScore) {
+        return `You won the game. Final score is You: ${playerScore}. Computer: ${computerScore}.`;
+    }
+    else if (computerScore > playerScore) {
+        return `You lost the game. Final score is Computer: ${computerScore}. You: ${playerScore}.`;
+    }
+    else {
+        return `No winner. The game is a tie! Final score is You: ${playerScore}. Computer: ${computerScore}`;
+    }
 }
 
 function game() {
-    console.log(playRound(playerSelection = prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
+    console.log(playRound(prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
     scores();
-    console.log(playRound(playerSelection  = prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
+    console.log(playRound(prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
     scores();
-    console.log(playRound(playerSelection  = prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
+    console.log(playRound(prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
     scores();
-    console.log(playRound(playerSelection  = prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
+    console.log(playRound(prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
     scores();
-    console.log(playRound(playerSelection  = prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
+    console.log(playRound(prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
     scores();
+
+    console.log(gameEnd());
 }
 
+game();
 game();
