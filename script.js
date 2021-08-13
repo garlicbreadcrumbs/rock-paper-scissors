@@ -20,9 +20,9 @@ function playRound(playerSelection, computerSelection) {
         playerScore++;
         return 'You Win! Scissors beats Paper.';
     } else if (playerSelection === computerSelection) {
-        return 'It\'s a tie!';
+        return `It's a tie!`;
     } else if (playerSelection !== 'rock' && playerSelection !== 'paper' && playerSelection !== 'scissors') {
-        return 'Please enter Rock, Paper, or Scissors.';
+        return `You entered "${playerSelection}". Please enter Rock, Paper, or Scissors.`;
     } else {
         computerScore++;
         return 'You Lose! ' + computerSelection.charAt(0).toUpperCase() + computerSelection.slice(1).toLowerCase() + 
@@ -33,6 +33,11 @@ function playRound(playerSelection, computerSelection) {
 
 function scores() {
     console.log(`Your score: ${playerScore}. Computer's score: ${computerScore}`);
+}
+
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
 }
 
 function gameEnd() {
@@ -59,8 +64,10 @@ function game() {
     console.log(playRound(prompt('Rock, Paper, or Scissors?').toLowerCase(), computerSelection));
     scores();
 
-    console.log(gameEnd());
+    console.log( gameEnd() );
+    resetScore();
 }
 
+game();
 game();
 game();
